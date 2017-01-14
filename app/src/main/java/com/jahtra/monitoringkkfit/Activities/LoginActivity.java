@@ -1,5 +1,6 @@
 package com.jahtra.monitoringkkfit.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.percent.PercentLayoutHelper;
@@ -56,7 +57,9 @@ public class LoginActivity extends BaseActivity {
                     //Getting the data from snapshot
                     if (dataSnapshot.child(username).exists()) {
                         if (dataSnapshot.child(username).child("password").getValue().toString().equals(password)) {
-                            showOKAlertDialog(LoginActivity.this, "Login Successfully", "Yeah!\nCode lecturers '"+username+"' was found.");
+                            Intent intent = new Intent(LoginActivity.this, DosenMainActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
                             showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nWrong password.");
                         }

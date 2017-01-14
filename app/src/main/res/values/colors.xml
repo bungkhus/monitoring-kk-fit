@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#673AB7</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#512DA8</color>
     <color name="colorAccent">#ffffff</color>
 
     <color name="colorPrimaryTrans">#a0673AB7</color>
@@ -9,4 +9,7 @@
     <color name="colorBlackTrans">#a0000000</color>
     <color name="gray">#444444</color>
     <color name="white">#FFF</color>
+    <color name="buttonBarPositiveButton">#303F9F</color>
+    <color name="deepPurpleDark">#512DA8</color>
+    <color name="deepOrange">#FF5722</color>
 </resources>
