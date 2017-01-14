@@ -1,4 +1,4 @@
-package com.jahtra.monitoringkkfit;
+package com.jahtra.monitoringkkfit.Base;
 
 /**
  * Created by bungkhus on 1/14/17.

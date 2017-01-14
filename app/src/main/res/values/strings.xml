@@ -5,4 +5,5 @@
     <string name="tvAbout">Apliasi Monitoring Pencapaian Kinerja Kelompok Keahlian di Fakultas Ilmu Terapan Universitas Telkom Bandung</string>
     <string name="tfEmail">Kode Dosen</string>
     <string name="tfPassword">Password</string>
+    <string name="loading">Loading...</string>
 </resources>
