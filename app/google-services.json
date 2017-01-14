@@ -1,0 +1,155 @@
+{
+  "project_info": {
+    "project_number": "76982381358",
+    "firebase_url": "https://bungkhus-e28d3.firebaseio.com",
+    "project_id": "bungkhus-e28d3",
+    "storage_bucket": "bungkhus-e28d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76982381358:android:70eb83f2f571e4e1",
+        "android_client_info": {
+          "package_name": "com.example.bungkhus.bungkhus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76982381358-obl62c9euak4pn1gehcgsvbtmj4le2ep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bungkhus.bungkhus",
+            "certificate_hash": "26C9A83248C9731E1ACE8D8D3BA15375D4D5D178"
+          }
+        },
+        {
+          "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "76982381358-l98ht8oo3palbbiodu1neeci86c2hubm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs26PQCizWmcrdbb69YHLflHIlpgz5Z9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76982381358:android:261bea5db08bdf7c",
+        "android_client_info": {
+          "package_name": "com.bungkhus.ministudio.hellobungkhus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76982381358-n86v121qst5d5u1hmvkm2n0nf8ob9s9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bungkhus.ministudio.hellobungkhus",
+            "certificate_hash": "26C9A83248C9731E1ACE8D8D3BA15375D4D5D178"
+          }
+        },
+        {
+          "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "76982381358-l98ht8oo3palbbiodu1neeci86c2hubm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs26PQCizWmcrdbb69YHLflHIlpgz5Z9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76982381358:android:85582a406c7442dc",
+        "android_client_info": {
+          "package_name": "com.jahtra.monitoringkkfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76982381358-gq5c64l8qqmt21k18i1ijavoa6ltebvk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jahtra.monitoringkkfit",
+            "certificate_hash": "26C9A83248C9731E1ACE8D8D3BA15375D4D5D178"
+          }
+        },
+        {
+          "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "76982381358-l98ht8oo3palbbiodu1neeci86c2hubm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs26PQCizWmcrdbb69YHLflHIlpgz5Z9M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76982381358-rmmbq679jca7l1t5mi7ta541f723cbsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
