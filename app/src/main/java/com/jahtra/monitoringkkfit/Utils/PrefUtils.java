@@ -1,9 +1,5 @@
 package com.jahtra.monitoringkkfit.Utils;
 
-/**
- * Created by bungkhus on 1/15/17.
- */
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -57,8 +53,8 @@ public class PrefUtils {
      *
      * @param context Context of caller activity
      */
-    public boolean clear(Context context){
+    public static void clear(Context context){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.edit().clear().commit();
+        prefs.edit().clear().commit();
     }
 }

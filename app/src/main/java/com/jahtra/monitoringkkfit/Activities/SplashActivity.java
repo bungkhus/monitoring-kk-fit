@@ -1,21 +1,18 @@
 package com.jahtra.monitoringkkfit.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by bungkhus on 1/14/17.
- */
+import com.jahtra.monitoringkkfit.Base.Base;
+import com.jahtra.monitoringkkfit.Utils.PrefUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+//        PrefUtils.clear(this);
+        new Base(this).goTo(this, LoginActivity.class);
         finish();
     }
 

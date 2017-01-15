@@ -1,10 +1,10 @@
 package com.jahtra.monitoringkkfit.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.percent.PercentLayoutHelper;
 import android.support.percent.PercentRelativeLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,11 +18,11 @@ import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.jahtra.monitoringkkfit.Base.BaseActivity;
+import com.jahtra.monitoringkkfit.Base.Base;
 import com.jahtra.monitoringkkfit.Models.User;
 import com.jahtra.monitoringkkfit.R;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private TextView tvSignupInvoker;
     private LinearLayout llSignup;
@@ -33,12 +33,15 @@ public class LoginActivity extends BaseActivity {
     private TextInputEditText etKodeDosen;
     private TextInputEditText etPassword;
 
+    private Base base;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        base = new Base(this);
 
-        String access = getFromPref(this, getString(R.string.keyAccess));
+        String access = base.getFromPref(this, getString(R.string.keyAccess));
         if (!access.equals("")) {
             cekLogin(access);
         }
@@ -47,48 +50,44 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void cekLogin(String access) {
-        if (isLogin()) {
+        if (base.isLogin()) {
             switch (access.toLowerCase()){
                 case "dosen":
-                    goTo(DosenMainActivity.class);
+                    base.goTo(this, DosenMainActivity.class);
+                    finish();
                     break;
             }
         }
-    }
-
-    private void goTo(Class javaClass) {
-        Intent i = new Intent(this, javaClass);
-        startActivity(i);
-        finish();
     }
 
     private void signIn() {
         final String username = etKodeDosen.getText().toString();
         final String password = etPassword.getText().toString();
 
-        hideKeyboard();
+        base.hideKeyboard();
 
         if (username.trim().isEmpty() || password.trim().isEmpty()) {
-            showOKAlertDialog(LoginActivity.this, "Login Failed", "Please make sure you enter all credentials!");
+            base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Please make sure you enter all credentials!");
         } else {
-            showProgressDialog();
-            firebaseDatabase().child("users").addValueEventListener(new ValueEventListener() {
+            base.showProgressDialog();
+            base.firebaseDatabase().child("users").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //Getting the data from snapshot
                     if (dataSnapshot.child(username).exists()) {
                         if (dataSnapshot.child(username).child("password").getValue().toString().equals(password)) {
                             User user = dataSnapshot.child(username).getValue(User.class);
-                            saveToPref(LoginActivity.this, getString(R.string.keyUsername), user.getKodeDosen());
-                            saveToPref(LoginActivity.this, getString(R.string.keyAccess), user.getAccess());
-                            goTo(DosenMainActivity.class);
+                            base.saveToPref(LoginActivity.this, getString(R.string.keyUsername), user.getKodeDosen());
+                            base.saveToPref(LoginActivity.this, getString(R.string.keyAccess), user.getAccess());
+                            base.goTo(LoginActivity.this, DosenMainActivity.class);
+                            finish();
                         } else {
-                            showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nWrong password.");
+                            base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nWrong password.");
                         }
                     } else {
-                        showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nCode lecturers '"+username+"' not found.");
+                        base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nCode lecturers '"+username+"' not found.");
                     }
-                    hideProgressDialog();
+                    base.hideProgressDialog();
                 }
 
                 @Override
@@ -134,7 +133,7 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View view) {
                 Animation clockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_right_to_left);
                 btnSignup.startAnimation(clockwise);
-                hideKeyboard();
+                base.hideKeyboard();
             }
         });
 
@@ -182,7 +181,7 @@ public class LoginActivity extends BaseActivity {
         Animation clockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_right_to_left);
         btnSignup.startAnimation(clockwise);
 
-        hideKeyboard();
+        base.hideKeyboard();
     }
 
     private void showSigninForm() {

@@ -11,15 +11,11 @@ import android.widget.TextView;
 
 import com.jahtra.monitoringkkfit.R;
 
-/**
- * Created by bungkhus on 1/14/17.
- */
-
 public class MyMenuAdapter extends BaseAdapter {
 
-    Context context;
-    String[] data;
-    int minHeight;
+    private Context context;
+    private String[] data;
+    private int minHeight;
 
     private static LayoutInflater inflater = null;
 
@@ -57,18 +53,10 @@ public class MyMenuAdapter extends BaseAdapter {
         if (vi == null)
             vi = inflater.inflate(R.layout.menu_row, null);
         vi.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, minHeight));
-        if (position == 1) {
-            vi.setBackgroundColor(Color.parseColor("#927C78"));
-        }
-        else if (position == 2) {
-            vi.setBackgroundColor(Color.parseColor("#a0009688"));
-        }
-        else if (position == 3) {
-            vi.setBackgroundColor(Color.parseColor("#444444"));
-        }
-        else {
-            vi.setBackgroundColor(Color.parseColor("#673AB7"));
-        }
+
+        int[] menuColors = context.getResources().getIntArray(R.array.menuColors);
+        vi.setBackgroundColor(menuColors[position]);
+
         TextView text = (TextView) vi.findViewById(R.id.menuTitle);
         text.setText(data[position]);
         return vi;

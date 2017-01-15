@@ -1,9 +1,5 @@
 package com.jahtra.monitoringkkfit.Base;
 
-/**
- * Created by bungkhus on 1/14/17.
- */
-
 import android.app.Application;
 import android.os.SystemClock;
 
