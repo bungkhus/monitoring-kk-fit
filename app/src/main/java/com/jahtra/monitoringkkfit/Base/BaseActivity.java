@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jahtra.monitoringkkfit.R;
+import com.jahtra.monitoringkkfit.Utils.PrefUtils;
 
 /**
  * Created by bungkhus on 1/14/17.
@@ -105,5 +106,17 @@ public class BaseActivity extends AppCompatActivity {
         actionBarHeight = (int) styledAttributes.getDimension(0, 0);
         styledAttributes.recycle();
         return actionBarHeight;
+    }
+
+    public String getFromPref(Context context, String key) {
+        return PrefUtils.getFromPrefs(context, key, "");
+    }
+
+    public void saveToPref(Context context, String key, String value) {
+        PrefUtils.saveToPrefs(context, key, value);
+    }
+
+    public boolean isLogin() {
+        return !getFromPref(this, getString(R.string.keyUsername)).equals("");
     }
 }

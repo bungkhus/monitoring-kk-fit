@@ -6,4 +6,7 @@
     <string name="tfEmail">Kode Dosen</string>
     <string name="tfPassword">Password</string>
     <string name="loading">Loading...</string>
+
+    <string name="keyUsername">username</string>
+    <string name="keyAccess">access</string>
 </resources>

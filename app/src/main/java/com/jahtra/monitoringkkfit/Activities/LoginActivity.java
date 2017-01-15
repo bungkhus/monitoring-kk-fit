@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.jahtra.monitoringkkfit.Base.BaseActivity;
+import com.jahtra.monitoringkkfit.Models.User;
 import com.jahtra.monitoringkkfit.R;
 
 public class LoginActivity extends BaseActivity {
@@ -37,8 +38,28 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        String access = getFromPref(this, getString(R.string.keyAccess));
+        if (!access.equals("")) {
+            cekLogin(access);
+        }
         setupView();
         setupActionListener();
+    }
+
+    private void cekLogin(String access) {
+        if (isLogin()) {
+            switch (access.toLowerCase()){
+                case "dosen":
+                    goTo(DosenMainActivity.class);
+                    break;
+            }
+        }
+    }
+
+    private void goTo(Class javaClass) {
+        Intent i = new Intent(this, javaClass);
+        startActivity(i);
+        finish();
     }
 
     private void signIn() {
@@ -57,9 +78,10 @@ public class LoginActivity extends BaseActivity {
                     //Getting the data from snapshot
                     if (dataSnapshot.child(username).exists()) {
                         if (dataSnapshot.child(username).child("password").getValue().toString().equals(password)) {
-                            Intent intent = new Intent(LoginActivity.this, DosenMainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            User user = dataSnapshot.child(username).getValue(User.class);
+                            saveToPref(LoginActivity.this, getString(R.string.keyUsername), user.getKodeDosen());
+                            saveToPref(LoginActivity.this, getString(R.string.keyAccess), user.getAccess());
+                            goTo(DosenMainActivity.class);
                         } else {
                             showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nWrong password.");
                         }
