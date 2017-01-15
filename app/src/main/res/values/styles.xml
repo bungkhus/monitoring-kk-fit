@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/deepPurpleDark</item>
-        <item name="colorAccent">@color/deepOrange</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="Base.Widget.AppCompat.Button.Borderless.MyStyle">
