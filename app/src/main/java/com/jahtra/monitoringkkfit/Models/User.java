@@ -1,9 +1,5 @@
 package com.jahtra.monitoringkkfit.Models;
 
-/**
- * Created by bungkhus on 1/15/17.
- */
-
 public class User {
 
     private String kodeDosen;
