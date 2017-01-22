@@ -9,10 +9,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
 import com.jahtra.monitoringkkfit.Adapters.MyMenuAdapter;
 import com.jahtra.monitoringkkfit.Base.Base;
 import com.jahtra.monitoringkkfit.Models.Penelitian;
@@ -72,30 +68,6 @@ public class DosenMainActivity extends AppCompatActivity {
                         i = new Intent(DosenMainActivity.this, RincianActivity.class);
                         i.putExtra("position", position);
                         i.putExtra("title", title);
-
-                        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-                        Date today = Calendar.getInstance().getTime();
-                        final String stringDate = df.format(today);
-
-                        final Map<String, User> anggota = new HashMap();
-                        final String uniqueID = UUID.randomUUID().toString();
-                        String [] names = {"HRU", "WDM"};
-                        for( String name : names ) {
-                            base.firebaseDatabase().child("users").child(name).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    User user = dataSnapshot.getValue(User.class);
-                                    anggota.put(user.getKodeDosen(), user);
-                                    Penelitian penelitian = new Penelitian(uniqueID, "XXX", stringDate, anggota, 3000, "asasa", "WDM", "HRU");
-                                    base.firebaseDatabase().child("penelitian").child(uniqueID).setValue(penelitian);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            });
-                        }
                         break;
                     case 2: //statistik
                         System.out.println(position + " " +title);

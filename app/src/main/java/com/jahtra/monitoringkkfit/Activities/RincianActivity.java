@@ -51,9 +51,9 @@ public class RincianActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new DummyFragment(), "Penelitian");
-//        adapter.addFrag(new DummyFragment(), "Publikasi");
-//        adapter.addFrag(new DummyFragment(), "Pengmas");
-//        adapter.addFrag(new DummyFragment(), "Seminar");
+        adapter.addFrag(new DummyFragment(), "Publikasi");
+        adapter.addFrag(new DummyFragment(), "Pengmas");
+        adapter.addFrag(new DummyFragment(), "Seminar");
         viewPager.setAdapter(adapter);
     }
 }

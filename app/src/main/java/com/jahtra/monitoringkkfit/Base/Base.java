@@ -15,9 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.jahtra.monitoringkkfit.R;
 import com.jahtra.monitoringkkfit.Utils.PrefUtils;
 
@@ -34,10 +31,6 @@ public class Base {
     }
 
     private ProgressDialog mProgressDialog;
-
-    public DatabaseReference firebaseDatabase() {
-        return FirebaseDatabase.getInstance().getReference();
-    }
 
     public void showProgressDialog() {
         if (mProgressDialog == null) {

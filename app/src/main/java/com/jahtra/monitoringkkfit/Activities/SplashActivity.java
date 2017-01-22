@@ -11,7 +11,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        PrefUtils.clear(this);
+        System.out.println("spalsh");
         new Base(this).goTo(this, LoginActivity.class);
         finish();
     }

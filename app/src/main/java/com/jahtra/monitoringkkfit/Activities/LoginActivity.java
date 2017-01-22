@@ -15,12 +15,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 import com.jahtra.monitoringkkfit.Base.Base;
 import com.jahtra.monitoringkkfit.Models.User;
 import com.jahtra.monitoringkkfit.R;
+import com.jahtra.monitoringkkfit.Utils.PrefUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -70,31 +68,9 @@ public class LoginActivity extends AppCompatActivity {
             base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Please make sure you enter all credentials!");
         } else {
             base.showProgressDialog();
-            base.firebaseDatabase().child("users").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //Getting the data from snapshot
-                    if (dataSnapshot.child(username).exists()) {
-                        if (dataSnapshot.child(username).child("password").getValue().toString().equals(password)) {
-                            User user = dataSnapshot.child(username).getValue(User.class);
-                            base.saveToPref(LoginActivity.this, getString(R.string.keyUsername), user.getKodeDosen());
-                            base.saveToPref(LoginActivity.this, getString(R.string.keyAccess), user.getAccess());
-                            base.goTo(LoginActivity.this, DosenMainActivity.class);
-                            finish();
-                        } else {
-                            base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nWrong password.");
-                        }
-                    } else {
-                        base.showOKAlertDialog(LoginActivity.this, "Login Failed", "Uh oh!\nCode lecturers '"+username+"' not found.");
-                    }
-                    base.hideProgressDialog();
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    Log.e("databaseError", databaseError.getMessage());
-                }
-            });
+            // connect to api here
+            base.goTo(this, DosenMainActivity.class);
+            finish();
         }
     }
 
